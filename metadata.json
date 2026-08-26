@@ -1,0 +1,6 @@
+{
+  "name": "Softham Beach Kiosk - Estudo de Viabilidade & Simulador",
+  "description": "Softham OpenDesk - Sistema completo de PDV móvel para garçons, cardápio eletrônico em tablet de mesa, retaguarda com KDS, rateio inteligente por pessoa, DRE de fechamento de caixa, roteiro de demonstração guiado comercial, exportação em CSV/PDF e sincronização em tempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
