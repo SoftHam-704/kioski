@@ -25,12 +25,14 @@ import {
   Banknote,
   Receipt,
   Download,
-  AlertTriangle
+  AlertTriangle,
+  Database
 } from 'lucide-react';
 import { TableOrSpot, BeachItem, TableTransferLog, OrderItem, EstablishmentProfile } from '../../types';
 import { KdsView } from './KdsView';
 import { ThermalReceiptModal } from '../common/ThermalReceiptModal';
 import { ExportReportsModal } from '../common/ExportReportsModal';
+import { DatabaseScriptsModal } from '../common/DatabaseScriptsModal';
 
 interface WebBackofficeProps {
   tables: TableOrSpot[];
@@ -53,6 +55,7 @@ export const WebBackoffice: React.FC<WebBackofficeProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('todos');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+  const [isDbScriptsOpen, setIsDbScriptsOpen] = useState(false);
 
   // Modal receipt state
   const [receiptTable, setReceiptTable] = useState<TableOrSpot | null>(null);
@@ -271,6 +274,15 @@ export const WebBackoffice: React.FC<WebBackofficeProps> = ({
           >
             <Download className="w-4 h-4" />
             <span>Exportar Relatórios</span>
+          </button>
+
+          <button
+            onClick={() => setIsDbScriptsOpen(true)}
+            className="px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200 transition-all shadow-xs"
+            title="Ver os scripts SQL do banco (PostgreSQL, MySQL, SQLite e Prisma)"
+          >
+            <Database className="w-4 h-4" />
+            <span>Scripts do Banco</span>
           </button>
         </div>
       </div>
@@ -983,6 +995,14 @@ export const WebBackoffice: React.FC<WebBackofficeProps> = ({
           transferLogs={transferLogs}
           menu={menu}
           activeProfile={defaultProfile}
+        />
+      )}
+
+      {/* Database DDL & Seed Scripts Viewer */}
+      {isDbScriptsOpen && (
+        <DatabaseScriptsModal
+          isOpen={isDbScriptsOpen}
+          onClose={() => setIsDbScriptsOpen(false)}
         />
       )}
     </div>
