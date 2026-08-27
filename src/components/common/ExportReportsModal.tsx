@@ -84,11 +84,10 @@ export const ExportReportsModal: React.FC<ExportReportsModalProps> = ({
 
   // 2. Export Audit Logs CSV
   const handleExportAuditCsv = () => {
-    let csv = 'Data/Hora;Mesa Origem;Mesa Destino;Tipo Acao;Garcom Solicitante;Motivo;Detalhes Itens\n';
+    let csv = 'Data/Hora;Mesa Origem;Mesa Destino;Tipo Acao;Garcom Solicitante;Motivo;Itens Transferidos;Clientes Transferidos\n';
 
     transferLogs.forEach((log) => {
-      const itemsDetail = log.itemsTransferred?.map((i) => `${i.quantity}x ${i.name}`).join(' | ') || 'Comanda Integral';
-      csv += `"${log.timestamp}";"${log.fromTableCode}";"${log.toTableCode}";"${log.type}";"${log.requestedBy}";"${log.reason}";"${itemsDetail}"\n`;
+      csv += `"${log.timestamp}";"${log.sourceTableCode}";"${log.targetTableCode}";"${log.transferType}";"${log.waiterName}";"${log.reason}";${log.itemsTransferredCount};${log.customersTransferredCount}\n`;
     });
 
     downloadCsv('softham_auditoria_trocas', csv);

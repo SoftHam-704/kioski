@@ -96,8 +96,8 @@ export const WebBackoffice: React.FC<WebBackofficeProps> = ({
   // Breakdown by payment methods from actual payments
   const allPayments = tables.flatMap((t) => t.payments || []);
   const pixTotal = allPayments.filter((p) => p.method === 'pix').reduce((s, p) => s + p.amount, 0);
-  const creditTotal = allPayments.filter((p) => p.method === 'credito').reduce((s, p) => s + p.amount, 0);
-  const debitTotal = allPayments.filter((p) => p.method === 'debito').reduce((s, p) => s + p.amount, 0);
+  const creditTotal = allPayments.filter((p) => p.method === 'cartao_credito').reduce((s, p) => s + p.amount, 0);
+  const debitTotal = allPayments.filter((p) => p.method === 'cartao_debito').reduce((s, p) => s + p.amount, 0);
   const moneyTotal = allPayments.filter((p) => p.method === 'dinheiro').reduce((s, p) => s + p.amount, 0);
 
   const totalWithdrawals = cashWithdrawals.reduce((s, w) => s + w.amount, 0);
