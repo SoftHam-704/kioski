@@ -17,10 +17,10 @@
 
 ## Sincronizar com o AI Studio
 
-Estes 4 arquivos existem **só no AI Studio**, não no repo:
+Dos 4 arquivos do AI Studio, **2 já foram trazidos e commitados** (`src/data/schema.sql` e `src/data/seed.sql`, validados por script).
 
-- `src/data/schema.sql`
-- `src/data/seed.sql`
+Ainda faltam **2**, cujo conteúdo nunca chegou:
+
 - `src/data/dbScripts.ts`
 - `src/components/common/DatabaseScriptsModal.tsx`
 
