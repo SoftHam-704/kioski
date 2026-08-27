@@ -1,8 +1,8 @@
 # Retomar aqui — 2026-08-26
 
-## ⚠️ Antes de tudo: há trabalho não commitado
+## Correções aplicadas (já commitadas e no GitHub)
 
-`git status` está sujo. Foram corrigidos 2 bugs reais e ligada a checagem estrita de tipos:
+Foram corrigidos 2 bugs reais e ligada a checagem estrita de tipos:
 
 | Arquivo | O que mudou |
 |---|---|
@@ -13,20 +13,14 @@
 
 **Por que os types importam:** sem eles o TypeScript degradava todo JSX para `any` e `npm run lint` dava **0 erros mascarando os 2 bugs**. Com types + strict, `tsc --noEmit` dá 0 erros de verdade. Build passa (444 kB).
 
-→ **Ação: revisar o diff e commitar.**
+## Sincronização com o AI Studio — CONCLUÍDA
 
-## Sincronizar com o AI Studio
+Os 4 arquivos foram trazidos e commitados:
 
-Dos 4 arquivos do AI Studio, **2 já foram trazidos e commitados** (`src/data/schema.sql` e `src/data/seed.sql`, validados por script).
-
-Ainda faltam **2**, cujo conteúdo nunca chegou:
-
-- `src/data/dbScripts.ts`
-- `src/components/common/DatabaseScriptsModal.tsx`
-
-Exportar via "Export to ZIP" / "Export to GitHub".
-
-> ⚠️ **Não deixar o `package.json` e o `tsconfig.json` do AI Studio sobrescreverem os locais** — perde os types e o `strict`, e o lint volta a mentir.
+- `src/data/schema.sql` — 11 tabelas, validado por script
+- `src/data/seed.sql` — carga derivada do mockData
+- `src/data/dbScripts.ts` — DDL em PostgreSQL, MySQL, SQLite e Prisma
+- `src/components/common/DatabaseScriptsModal.tsx` — visualizador, **ligado** ao WebBackoffice pelo botão "Scripts do Banco"
 
 ## Pedir ao Gemini
 
